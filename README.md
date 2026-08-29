@@ -86,6 +86,18 @@ Measured baselines (per step, net-billable input):
 
 The incident replay test: 16 steps × 360K full-price resend = 5.74M tokens in 3 minutes → with daily defaults, execution stops at ~550K (≈90% saved), mid-run, with a visible reason.
 
+## One switch: "cached" vs "no-cache" route
+
+The cost fuse normally *infers* an uncached full-price resend from the measured cache-hit rate (`auto`). If you know which endpoint you're on, you can tell the guard directly and it evaluates more precisely, without guessing from numbers:
+
+- **`cached` (has cache)** — e.g. deepseek official with prompt caching. The fuse no longer flags a *single* low cache-hit step (cold-start / brand-new long topic can also hit low), keeping only the per-turn budget hard cap. This is the "never fires" daily baseline.
+- **`nocache` (no cache)** — e.g. token-plan / "套餐" endpoints that re-bill the whole context each step. The fuse gets **strict**: any step with net input ≥ `costRequestInputMax` and context ≥ `costContextMin` counts as a full-price resend, with no cache-hit-rate precondition.
+- **`auto` (default)** — keep the original inference based on cache-hit rate.
+
+Find it under **Settings → Discipline Guard → ② Cost fuse → 当前路由缓存判定** (three-way toggle). Hot-reloaded, no restart.
+
+> Caution: labeling a truly `nocache` route as `cached` removes the full-price-resend guard (only the turn budget remains as a backstop). Mark routes truthfully.
+
 ## Known limitations
 
 - Client UI (chip + settings page) targets the **web** profile; desktop profile gets host gates only (config via `settings.yaml` directly).
