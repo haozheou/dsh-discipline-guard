@@ -1,0 +1,4 @@
+# dsh-discipline-guard bundle patch: mounts the discipline-guard plugin row.
+- insert:
+    - id: discipline-guard
+      name: 'dsh-discipline-guard'

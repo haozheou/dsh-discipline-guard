@@ -1,0 +1,31 @@
+{
+  "name": "dsh-discipline-guard",
+  "version": "1.0.0",
+  "description": "Agent discipline guard for DeepSeek Harness: loop circuit-breaker, token-cost fuse, route-switch warning and plan approval — enforced at the harness boundary, so the model cannot talk its way past them. / DSH Agent 纪律卫士：循环熔断、成本熔断、路由警示、计划门四道硬闸门。",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "keywords": ["dsh", "dsh-plugin", "cordis", "agent", "guard", "tokens", "cost-control"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haozheou/dsh-discipline-guard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/haozheou/dsh-discipline-guard/issues"
+  },
+  "homepage": "https://github.com/haozheou/dsh-discipline-guard#readme",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": ["@deepseek-ai/dsh-client-runtime"],
+      "platform": "web"
+    }
+  }
+}
