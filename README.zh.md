@@ -2,6 +2,14 @@
 
 **你的 agent 曾在一场事故里 3 分钟烧穿整周 Token 配额，期间还礼貌地告诉你"快好了"。提示词里写一万遍"不要重复"都没用——因为模型可以无视文字。本插件挂在 harness 边界上，在工具派发之前、在模型请求发出之前拦截，没有商量余地。**
 
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/01-header-chip.png" alt="会话头部芯片" width="520"><br><em>会话标题区 🛡 一键芯片</em></td>
+    <td align="center"><img src="docs/screenshots/02-settings-menu.png" alt="设置菜单" width="300"><br><em>设置 → 纪律卫士</em></td>
+    <td align="center"><img src="docs/screenshots/03-settings-detail.png" alt="设置详情" width="520"><br><em>各闸门独立开关、阈值与预设（off / daily / wild）</em></td>
+  </tr>
+</table>
+
 ## 四道闸门
 
 | # | 闸门 | 默认 | 行为 |

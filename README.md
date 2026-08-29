@@ -2,6 +2,14 @@
 
 **Your agent burned through a weekly token quota in 3 minutes — while politely telling you it was "almost done". This plugin stops it at the harness boundary, where text-based reminders can't reach.**
 
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/01-header-chip.png" alt="Header chip" width="520"><br><em>🛡 one-click chip in the session header</em></td>
+    <td align="center"><img src="docs/screenshots/02-settings-menu.png" alt="Settings menu" width="300"><br><em>Settings → Discipline Guard</em></td>
+    <td align="center"><img src="docs/screenshots/03-settings-detail.png" alt="Settings detail" width="520"><br><em>Per-gate switches, thresholds & presets (off / daily / wild)</em></td>
+  </tr>
+</table>
+
 Prompt-level "please don't repeat yourself" reminders are advisory: a determined (or confused) model walks straight through them. `dsh-discipline-guard` is not a prompt. It hooks the harness waterfall (`tools/pre-execute`, `agent/pre-step`, `session/event`) and **refuses dispatches, blocks turns, and pops native approval cards** — the model cannot argue with the tool pipeline never running.
 
 ## The four gates
